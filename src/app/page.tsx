@@ -1,5 +1,6 @@
-import LinkCard from "@/components/LinkCard";
+import LinkList from "@/components/LinkList";
 import ProfileHeader from "@/components/ProfileHeader";
+import { links } from "@/lib/links";
 
 // TODO: 보여주기용 더미 값. 실제 내용으로 교체 예정
 const profile = {
@@ -7,12 +8,6 @@ const profile = {
   bio: "풀스택 개발자 | 요즘에는 AI 개발에 관심이 많아요",
   imageSrc: "https://placehold.co/128x128/orange/white",
 };
-
-const links = [
-  { title: "GitHub", url: "https://github.com/" },
-  { title: "LinkedIn", url: "https://www.linkedin.com/" },
-  { title: "Blog", url: "https://example.com/" },
-];
 
 export default function Home() {
   return (
@@ -28,11 +23,7 @@ export default function Home() {
       />
       <main className="flex w-full max-w-md flex-col items-center gap-12 px-7 py-16 sm:px-8 sm:py-24">
         <ProfileHeader {...profile} />
-        <nav className="flex w-full flex-col gap-4 sm:gap-5">
-          {links.map((link) => (
-            <LinkCard key={link.title} {...link} />
-          ))}
-        </nav>
+        <LinkList links={links} />
       </main>
     </div>
   );
